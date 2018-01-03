@@ -39,14 +39,14 @@ class User extends Authenticatable
     }
     //Every user has many comments
     public function comments(){
-        return $this-hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
     //Every user has many roles
     public function roles(){
-        return $this-hasMany('App\Models\Role');
+        return $this->belongsTo('App\Models\Role');
     }
     //Every user has many companies
     public function companies(){
-        return $this-hasMany('App\Models\Companies');
+        return $this->hasMany('App\Models\Companies');
     }
 }
