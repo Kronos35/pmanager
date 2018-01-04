@@ -11,4 +11,8 @@ class TaskUser extends Model
     	'task_id',
     	'user_id'
     ];
+
+    public function users(){
+        return $this->hasMany('App\Comment');
+    }
 }

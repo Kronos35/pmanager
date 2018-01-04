@@ -15,9 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/who', function () {
-    return 'WTF are you?';
-});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('companies', 'CompaniesController');
+Route::resource('comments', 'CommentsController');
+Route::resource('projects', 'ProjectsController');
+Route::resource('roles', 'RolesController');
+Route::resource('rask', 'TasksController');
+Route::resource('users', 'UsersController');
+

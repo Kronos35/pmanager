@@ -13,7 +13,6 @@ class Comment extends Model
     	'commentable_id',
     	'commentable_type',
     	'user_id'
-
     ];
 
 }

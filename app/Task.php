@@ -13,6 +13,19 @@ class Task extends Model
     	'user_id',
     	'days',
     	'hours',
-    	'company_id'
+    	'company_id',
+        'description'
     ];
+
+    public function user(){
+    	return $this->belongsTo('App\User');
+    }
+
+    public function project(){
+    	return $this->belongsTo('App\Project');
+    }
+
+    public function company(){
+    	return $this->belongsTo('App\Company');
+    }
 }
