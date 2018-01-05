@@ -27,24 +27,24 @@ class CreateUsersTable extends Migration
                 $table->string('middle_ name')->nullable();
                 $table->string('last_name')->nullable();
                 $table->string('city')->nullable();
-                $table->integer('role_id')->unsigned();
+                $table->integer('role_id')->unsigned()->default(3);
 
                 $table->timestamps();
 
             });
         }
         //if table 'users' already exist
-        Schema::table('users',function(Blueprint $table){
-            /* Commented fro debugging reasons
+        //Schema::table('users',function(Blueprint $table){
+            /* Commented for debugging reasons
             
             $table->string('first_name')->nullable();
             $table->string('middle_ name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('city')->nullable();
-            $table->integer('role_id')->unsigned();
+            $table->integer('role_id')->unsigned()->default(3);
             
             */
-        });
+        //});
     }
 
     /**

@@ -16,7 +16,7 @@
     			placeholder="Enter name"
     			id="company-name" 
     			required
-    			name="description" 
+    			name="name" 
     			spellcheck="false" 
     			class="form-control" 
     			value="{{ $company->name }}" 
@@ -51,7 +51,7 @@
             <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
           </div-->
           <div class="sidebar-module">
-            <h4>User Management</h4>
+            <h4>Management</h4>
             <ol class="list-unstyled">
               <li><a href="/companies/{{$company->id}}">View company</a></li>
               <li><a href="/companies/">All companies</a></li>

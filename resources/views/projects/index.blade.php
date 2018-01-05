@@ -3,20 +3,20 @@
 
 <div class="panel panel-default col-md-6 col-lg-6 col-md-offset-2 col-lg-offset-3">
   <div class="panel-heading">
-    Companies
+    Projects
   </div>
   <div class="panel-body">
     <p class="card-text">
       <ul class="list-group">
-      @foreach($companies as $company)
+      @foreach($projects as $project)
         <li class="list-group-item">
-          <a href="/companies/{{$company->id}}">
-            {{$company->name}}
+          <a href="/projects/{{$project->id}}">
+            {{$project->name}}
           </a>
         </li>
       @endforeach
     </p>
-    <a class="pull-right btn btn-primary" href="/companies/create">Add Company</a>
+    <a class="pull-right btn btn-primary" href="/projects/create">Add Project</a>
   </div>
 </div>
 @endsection

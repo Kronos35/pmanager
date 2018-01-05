@@ -1,31 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-sm-9 col-md-9 col-lg-9 pull-left" style="background: white;">
-  <h1>Create New Company</h1>
+<div class="col-sm-9 col-md-9 col-lg-9 pull-left" style="background: white">
+  <h1>Create New Project</h1>
   <!-- Example row of columns -->
   
   <div class="row" style="background-color: white; margin: 10px">
-    <form method="post" action="{{route('companies.store')}}">
+    <form method="post" action="{{route('projects.store')}}">
     	{{ csrf_field() }}
     	
     	<div class="form-group">
-    		<label for="company-name">Name<span class="required">*</span></label>
+    		<label for="project-name">Name<span class="required">*</span></label>
     		<input 
     			placeholder="Enter name"
-    			id="company-name" 
+    			id="project-name" 
     			required
     			name="name" 
     			spellcheck="false" 
     			class="form-control" 
     		/>
+        <input 
+          type="hidden" 
+          name="company_id" 
+          value="{{ $company_id }}" 
+        />
+
     	</div>
+
     	<div class="form-group">
-    		<label for="company-content">Description</label>
+    		<label for="project-content">Description</label>
     		<textarea
     			placeholder="Enter description"
     			style="resize: vertical;"
-    			id="company-content"
+    			id="project-content"
     			name="description" 
     			rows="5"
     			spellcheck="false"
@@ -39,7 +46,7 @@
     </form>
   </div>
   <footer class="footer pull-left">
-    <p>© Company 2017</p>
+    <p>© project 2017</p>
   </footer>
 </div>
 
@@ -51,7 +58,7 @@
           <div class="sidebar-module">
             <h4>Management</h4>
             <ol class="list-unstyled">
-              <li><a href="/companies/">View my Companies</a></li>
+              <li><a href="/projects/">View my projects</a></li>
             </ol>
           </div>
           <div class="sidebar-module">
