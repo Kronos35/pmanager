@@ -12,13 +12,11 @@
   <!-- Example row of columns -->
   
   <div class="row" style="background-color: white; margin: 10px">
-    <a href="/tasks/create/{{ $project->id }}" class="pull-right btn btn-default btn-sm">Add Task</a>
-    <br/>
     <div class="row container-fluid" style="margin: 10px">
       <form method="post" action="{{route('comments.store')}}">
           {{ csrf_field() }}
           
-          <input type="hidden" name="commentable_type" value="Project">
+          <input type="hidden" name="commentable_type" value="App\Project">
           <input type="hidden" name="commentable_id" value="{{ $project->id }}">
 
           <div class="form-group">
@@ -48,17 +46,7 @@
           </div>
       </form>
     </div>
-    {{-- @foreach($project->tasks as $task)
-    <div class="col-lg-4">
-      <h2>
-        {{$task->name}}
-      </h2>
-      <p>
-        {{$task->description}}
-      </p>
-      <p><a class="btn btn-primary" href="/tasks/{{$task->id}}" role="button">View Task »</a></p>
-    </div>
-    @endforeach --}}
+    @include('partials.comments')
   </div>
   <footer class="footer pull-left">
     <p>© Project 2017</p>
@@ -76,7 +64,7 @@
       <li><a href="/projects/{{$project->id}}/edit">Edit this project</a></li>
       <li><a href="/projects">My Projects</a></li>
       <li><a href="/projects/create">Add Project</a></li>
-      <li><a href="/tasks/create/{{ $project->id }}">Add Task</a></li>
+      <li><a href="/tasks/create/{{$project->id}}">Add Task</a></li>
       <br>
       @if($project->user_id == Auth::user()->id)
       <!--Delete Project Button-->

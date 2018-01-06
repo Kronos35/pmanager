@@ -19,13 +19,25 @@
     			spellcheck="false" 
     			class="form-control" 
     		/>
+        @if($companies==null)        
         <input 
           type="hidden" 
           name="company_id" 
           value="{{ $company_id }}" 
         />
+        @endif
 
     	</div>
+      @if($companies != null)
+      <div class="form-group">
+        <label for="company_content">Select Company</label>
+        <select name="company_id" class="form-control">
+          @foreach($companies as $company)
+            <option value="{{ $company->id }}">{{ $company->name }}</option>
+          @endforeach
+        </select>
+      </div>
+      @endif
 
     	<div class="form-group">
     		<label for="project-content">Description</label>

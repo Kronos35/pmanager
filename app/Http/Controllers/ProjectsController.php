@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use App\Companies;
+use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,12 +32,13 @@ class ProjectsController extends Controller
     public function create($company_id=null)
     {
         //
-        if ($company_id) {
-            $companies = Company::where('user_id',Auth::user()->id);
-        }
+
         if (Auth::check()) {
-            $projects = Project::where('user_id', Auth::user()->id)->get();
-            return view('projects.create',['company_id'=>$company_id]);
+            $companies=null;
+            if (!$company_id) {
+                $companies = Company::where('user_id',Auth::user()->id)->get();
+            }
+            return view('projects.create',['company_id'=>$company_id, 'companies'=>$companies]);
         }
         return view('auth.login');
         //return view('projects.create',['project_id'=>$id]);
@@ -78,7 +79,9 @@ class ProjectsController extends Controller
         //$project = Project::where('id',$project->id)->first();
         if (Auth::check()) {
             $project = Project::find($project->id);
-            return view('projects.show', ['project'=>$project]);
+
+            $comments = $project->comments;
+            return view('projects.show', ['project'=>$project,'comments'=>$comments]);
         }
         return view('auth.login');
     }
