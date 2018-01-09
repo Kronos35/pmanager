@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://use.fontawesome.com/0bb1a9cf97.js"></script>
 </head>
 <body>
     <div id="app">
@@ -46,11 +49,12 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href="{{ route('companies.index') }}">My Companies</a></li>
-                            <li><a href="{{ route('projects.index') }}">Projects</a></li>
-                            <li><a href="{{ route('tasks.index')}}">Tasks</a></li>
+                            <li><a href="{{ route('companies.index') }}"><i class="fa fa-building" aria-hidden="true"></i> My Companies</a></li>
+                            <li><a href="{{ route('projects.index') }}"><i class="fa fa-briefcase" aria-hidden="true"></i> Projects</a></li>
+                            <li><a href="{{ route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                    <img style="width:20px; height: 20px;" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-circle">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
